@@ -17,7 +17,7 @@ module.exports = function(options) {
     var url = resolve(ctx.path, options);
 
     var requestHeaders = options.getOverrideRequestHeaders
-      ? Object.assign({}, ctx.request.header, await options.getOverrideRequestHeaders())
+      ? Object.assign({}, ctx.request.header, await options.getOverrideRequestHeaders(ctx))
       : ctx.request.header;
 
     if (typeof options.suppressRequestHeaders === 'object') {
